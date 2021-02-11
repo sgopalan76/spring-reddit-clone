@@ -11,24 +11,34 @@ import com.programming.techie.springredditclone.repository.CommentRepository;
 import com.programming.techie.springredditclone.repository.PostRepository;
 import com.programming.techie.springredditclone.repository.UserRepository;
 import lombok.AllArgsConstructor;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.ComponentScans;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
-
 import static java.util.stream.Collectors.toList;
 
 @Service
-@AllArgsConstructor
 public class CommentService {
     private static final String POST_URL = "";
-    private final PostRepository postRepository;
-    private final UserRepository userRepository;
-    private final AuthService authService;
-    private final CommentMapper commentMapper;
-    private final CommentRepository commentRepository;
-    private final MailContentBuilder mailContentBuilder;
-    private final MailService mailService;
+    @Autowired
+    private PostRepository postRepository;
+    @Autowired
+    private UserRepository userRepository;
+    @Autowired
+    private AuthService authService;
+    @Autowired
+    private CommentMapper commentMapper;
+    @Autowired
+    private CommentRepository commentRepository;
+    @Autowired
+    private MailContentBuilder mailContentBuilder;
+    @Autowired
+    private MailService mailService;
 
     public void save(CommentsDto commentsDto) {
         Post post = postRepository.findById(commentsDto.getPostId())

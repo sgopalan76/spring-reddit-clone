@@ -3,6 +3,9 @@ package com.programming.techie.springredditclone.controller;
 import com.programming.techie.springredditclone.dto.CommentsDto;
 import com.programming.techie.springredditclone.service.CommentService;
 import lombok.AllArgsConstructor;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,9 +16,10 @@ import static org.springframework.http.HttpStatus.OK;
 
 @RestController
 @RequestMapping("/api/comments/")
-@AllArgsConstructor
+
 public class CommentsController {
-    private final CommentService commentService;
+	@Autowired
+    private CommentService commentService;
 
     @PostMapping
     public ResponseEntity<Void> createComment(@RequestBody CommentsDto commentsDto) {

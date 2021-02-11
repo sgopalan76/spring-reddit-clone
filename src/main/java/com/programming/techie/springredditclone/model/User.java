@@ -10,6 +10,9 @@ import javax.persistence.Id;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
+
+import org.hibernate.annotations.Table;
+
 import java.time.Instant;
 
 import static javax.persistence.GenerationType.IDENTITY;

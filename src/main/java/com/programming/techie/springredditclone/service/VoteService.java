@@ -8,6 +8,8 @@ import com.programming.techie.springredditclone.model.Vote;
 import com.programming.techie.springredditclone.repository.PostRepository;
 import com.programming.techie.springredditclone.repository.VoteRepository;
 import lombok.AllArgsConstructor;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -16,12 +18,15 @@ import java.util.Optional;
 import static com.programming.techie.springredditclone.model.VoteType.UPVOTE;
 
 @Service
-@AllArgsConstructor
 public class VoteService {
-
-    private final VoteRepository voteRepository;
-    private final PostRepository postRepository;
-    private final AuthService authService;
+	@Autowired
+    private VoteRepository voteRepository;
+	
+	@Autowired
+    private PostRepository postRepository;
+	
+	@Autowired
+    private AuthService authService;
 
     @Transactional
     public void vote(VoteDto voteDto) {

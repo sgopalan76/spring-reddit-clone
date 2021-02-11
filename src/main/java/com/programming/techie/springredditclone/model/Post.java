@@ -22,7 +22,7 @@ public class Post {
     @Id
     @GeneratedValue(strategy = IDENTITY)
     private Long postId;
-    @NotBlank(message = "Post Name cannot be empty or Null")
+    @Nullable
     private String postName;
     @Nullable
     private String url;

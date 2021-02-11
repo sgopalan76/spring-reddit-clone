@@ -7,6 +7,9 @@ import com.programming.techie.springredditclone.model.Subreddit;
 import com.programming.techie.springredditclone.repository.SubredditRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,12 +18,14 @@ import java.util.List;
 import static java.util.stream.Collectors.toList;
 
 @Service
-@AllArgsConstructor
 @Slf4j
+@Component
 public class SubredditService {
-
-    private final SubredditRepository subredditRepository;
-    private final SubredditMapper subredditMapper;
+	@Autowired
+    private SubredditRepository subredditRepository;
+    
+    @Autowired
+    private SubredditMapper subredditMapper;
 
     @Transactional
     public SubredditDto save(SubredditDto subredditDto) {

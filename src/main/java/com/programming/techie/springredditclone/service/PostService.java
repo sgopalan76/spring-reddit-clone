@@ -13,6 +13,9 @@ import com.programming.techie.springredditclone.repository.SubredditRepository;
 import com.programming.techie.springredditclone.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,16 +25,24 @@ import java.util.List;
 import static java.util.stream.Collectors.toList;
 
 @Service
-@AllArgsConstructor
 @Slf4j
 @Transactional
+@ComponentScan
 public class PostService {
-
-    private final PostRepository postRepository;
-    private final SubredditRepository subredditRepository;
-    private final UserRepository userRepository;
-    private final AuthService authService;
-    private final PostMapper postMapper;
+	@Autowired
+    private PostRepository postRepository;
+	
+	@Autowired
+    private SubredditRepository subredditRepository;
+	
+	@Autowired
+    private UserRepository userRepository;
+	
+	@Autowired
+    private AuthService authService;
+	
+	@Autowired
+    private PostMapper postMapper;
 
     public void save(PostRequest postRequest) {
         Subreddit subreddit = subredditRepository.findByName(postRequest.getSubredditName())

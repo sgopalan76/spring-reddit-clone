@@ -38,7 +38,7 @@ public class AuthService {
     private final AuthenticationManager authenticationManager;
     private final JwtProvider jwtProvider;
     private final RefreshTokenService refreshTokenService;
-
+    
     public void signup(RegisterRequest registerRequest) {
         User user = new User();
         user.setUsername(registerRequest.getUsername());
@@ -53,7 +53,7 @@ public class AuthService {
         mailService.sendMail(new NotificationEmail("Please Activate your Account",
                 user.getEmail(), "Thank you for signing up to Spring Reddit, " +
                 "please click on the below url to activate your account : " +
-                "http://localhost:8080/api/auth/accountVerification/" + token));
+                "http://localhost:8088/api/auth/accountVerification/" + token));
     }
 
     @Transactional(readOnly = true)
