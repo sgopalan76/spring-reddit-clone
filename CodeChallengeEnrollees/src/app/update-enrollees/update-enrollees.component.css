@@ -1,0 +1,9 @@
+.ng-invalid.ng-touched {
+    border-color: red;
+}
+
+.divider{
+    width:5px;
+    height:auto;
+    display:inline-block;
+}

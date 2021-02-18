@@ -1,0 +1,48 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3>Enrollee List</h3>
+  </div>
+  <label for="search" class="col-sm-2 col-form-label" style="text-align: left;">Search/Filter</label>
+  <div class="col-sm-6">
+    <input type="text" [(ngModel)]="searchValue" placeholder="Search text here - for status search CAPS TRUE/FALSE is allowed" class="form-control" id="search"/>
+  </div>
+  
+  <div class="panel-body">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Full Name</th>
+          <th>Activation <br> Status</th>
+          <th>Date of Birth</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let enrollee of enrollees | async | searchFilter: searchValue | paginate: 
+        {
+         id : 'listing_pagination',
+         itemsPerPage: 5,
+         currentPage: page,
+         totalItems: totalRecords
+        }"> 
+          <td scope="col">{{enrollee.id}}</td>
+          <td scope="col">{{enrollee.name}}</td>
+          <td scope="col">{{enrollee.active}}</td>
+          <td scope="col">{{enrollee.dateOfBirth}}</td>
+          <td scope="col"> 
+              <button class="btn btn-info" (click)="enrolleeDetails(enrollee.id)" style="margin-left: 10px">Details</button> 
+              <button class="btn btn-success" (click)="updateEnrollee(enrollee.id)" style="margin-left: 10px">Update</button>
+              <button class="btn btn-danger" disabled style="margin-left: 10px">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div>
+      <pagination-controls id="listing_pagination" maxSize="10" directionLinks="true" (pageChange)="page=$event"></pagination-controls>
+    </div>
+  </div>
+</div>
+
+

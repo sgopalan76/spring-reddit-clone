@@ -1,0 +1,32 @@
+<h2>Enrollee Details</h2> 
+
+<hr/>
+<div *ngIf="enrollee">
+  <div>
+    <div *ngIf="enrollee.id">
+    <label><b>ID: </b></label> {{enrollee.id}}
+    </div>
+  </div>
+  <br>
+  <div>
+    <div *ngIf="enrollee.name">
+    <label><b>Full Name: </b></label> {{enrollee.name}}
+    </div>
+  </div>
+  <br>
+  <div>
+    <label><b>Activation Status: </b></label> {{enrollee.active}}
+  </div>
+  <br>
+  <div>
+    <div *ngIf="enrollee.dateOfBirth">
+    <label><b>Date of Birth: </b></label> {{enrollee.dateOfBirth}}
+    </div>
+  </div>  
+</div>
+
+<br>
+<br>
+<button (click)="list()" class="btn btn-primary">Back to Employee List</button><br>
+
+
