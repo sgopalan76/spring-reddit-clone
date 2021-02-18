@@ -1,3 +1,20 @@
+# Some salient features
+  - Added pagination for the enrollee list (the pagination records are configurable per page)
+  - Added a Delete button for future enhancement ,if a delete service does get implemented
+  - A Search filter that allows to query on a record. The query will allow for Activation status search,
+    any name search that one wants to pull up.
+  - Details of a particular enrollee
+  - Updating a particular enrollee (given that the Date of Birth and ID fields are readonly and cannot be edited)
+    A Reset button that will clear the fields
+    Field validation for Name,if empty
+    Submit button is disabled if fields are blank on Form
+  - At any point, user can navigate to the Enrollee list from the top menu bar (Enrollee list)
+  - **💰BONUS CHALLENGE**💰: Also the Bonus challenge question has been fixed -
+    It is a data issue with particular ID (Rand Miller).Essentially id field needs to be in format -
+    89a0cd05-25fb-4b6e-a8f8-fc2187f690d0
+    The problem was the id was present without the "-" that caused the server to error.
+
+
 # CodeChallengeEnrollees
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.25.
