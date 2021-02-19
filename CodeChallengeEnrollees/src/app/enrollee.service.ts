@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Observable,throwError } from 'rxjs';
+//for catch:
+import { catchError } from 'rxjs/operators';
 import { Enrollee } from './enrollee';
 
 @Injectable({
@@ -13,14 +15,24 @@ export class EnrolleeService {
   constructor(private http: HttpClient) { }
 
   getEnrollee(id: string): Observable<any> {
-    return this.http.get(`${this.baseUrl}/${id}`);
+    return this.http.get(`${this.baseUrl}/${id}`)
+                    .pipe(catchError(this.errorHandler))
+                    ;
   }
 
   updateEnrollee(id: string, value: any): Observable<Object> {
-    return this.http.put(`${this.baseUrl}/${id}`, value);
+    return this.http.put(`${this.baseUrl}/${id}`, value)
+                    .pipe(catchError(this.errorHandler))
+                    ;
   }
 
   getEnrolleesList(): Observable<any> {
-    return this.http.get(`${this.baseUrl}`);
+    return this.http.get(`${this.baseUrl}`)
+                    .pipe(catchError(this.errorHandler))
+                    ;
+  }
+
+  errorHandler(error: HttpErrorResponse) {
+    return throwError(error.message || 'Server has thrown an error');
   }
 }

@@ -12,6 +12,9 @@ import { Router } from '@angular/router';
 export class EnrolleesListComponent implements OnInit {
   enrollees: Observable<Enrollee[]>;
   searchValue: string;
+  totalRecords: string;
+  page: Number=1;
+  public errorMsg: string;
 
   constructor(private enrolleeService: EnrolleeService,
     private router: Router) { }
@@ -22,7 +25,11 @@ export class EnrolleesListComponent implements OnInit {
 
   reloadData() {
     console.log('inside reloadData...');
-    this.enrollees = this.enrolleeService.getEnrolleesList();
+    this.enrolleeService.getEnrolleesList()
+                                          .subscribe( data => this.enrollees = data,
+                                                      error => this.errorMsg = error
+                                            );
+                                          
   }
 
   testData() {

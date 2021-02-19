@@ -1,6 +1,7 @@
 <div class="panel panel-primary">
   <div class="panel-heading">
     <h3>Enrollee List</h3>
+    <h4 class="CAPS">{{errorMsg}}</h4>
   </div>
   <label for="search" class="col-sm-2 col-form-label" style="text-align: left;">Search/Filter</label>
   <div class="col-sm-6">
@@ -19,7 +20,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let enrollee of enrollees | async | searchFilter: searchValue | paginate: 
+        <tr *ngFor="let enrollee of enrollees | searchFilter: searchValue | paginate: 
         {
          id : 'listing_pagination',
          itemsPerPage: 5,
