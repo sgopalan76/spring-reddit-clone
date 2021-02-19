@@ -8,7 +8,6 @@ import { EnrolleesDetailsComponent } from './enrollees-details/enrollees-details
 import { UpdateEnrolleesComponent } from './update-enrollees/update-enrollees.component';
 import { FormsModule } from '@angular/forms';
 import { SearchFilterPipe } from './search-filter.pipe';
-import { ToastrModule } from 'ngx-toastr';
 import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
@@ -24,7 +23,6 @@ import { NgxPaginationModule } from 'ngx-pagination';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ToastrModule.forRoot(),
     NgxPaginationModule
   ],
   providers: [],

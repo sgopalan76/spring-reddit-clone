@@ -3,7 +3,6 @@ import { Enrollee } from '../enrollee';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EnrolleeService } from '../enrollee.service';
 import { FormGroup } from '@angular/forms';
-import { Toast, ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-update-enrollees',

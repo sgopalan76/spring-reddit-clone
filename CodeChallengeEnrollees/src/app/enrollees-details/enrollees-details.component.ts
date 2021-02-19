@@ -3,7 +3,6 @@ import { EnrolleeService } from '../enrollee.service';
 import { EnrolleesListComponent } from '../enrollees-list/enrollees-list.component';
 import { Enrollee } from '../enrollee';
 import { Router, ActivatedRoute } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-enrollees-details',
