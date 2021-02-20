@@ -16,6 +16,9 @@
     89a0cd05-25fb-4b6e-a8f8-fc2187f690d0
     The problem was the id was present without the "-" that caused the server to error.
 
+# Unit testing - 
+  Screenshots attached in separate pdf 
+  Added Jasmine and karma tests
 
 # CodeChallengeEnrollees
 
