@@ -19,7 +19,13 @@ describe('EnrolleesListComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  /*it('should create the app', () => { // 4
+    fixture = TestBed.createComponent(EnrolleesListComponent);
+    const app = fixture.debugElement.componentInstance;
+    expect(app).toBeDefined();
+  });*/
+
+  /*it('should create', () => {
     expect(component).toBeTruthy();
-  });
+  });*/
 });

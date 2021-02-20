@@ -6,9 +6,31 @@ import { AppComponent } from './app.component';
 import { EnrolleesListComponent } from './enrollees-list/enrollees-list.component';
 import { EnrolleesDetailsComponent } from './enrollees-details/enrollees-details.component';
 import { UpdateEnrolleesComponent } from './update-enrollees/update-enrollees.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { SearchFilterPipe } from './search-filter.pipe';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { RouterModule, Routes} from '@angular/router';
+
+const appRoutes: Routes = [
+{
+    path: '',
+    redirectTo: 'enrollee',
+    pathMatch: 'full'
+},
+{
+    path: 'enrollees',
+    component: EnrolleesListComponent
+},
+{
+    path: 'details/:id',
+    component: EnrolleesDetailsComponent
+},
+{
+    path: 'update/:id',
+    component: UpdateEnrolleesComponent
+}
+
+];
 
 @NgModule({
   declarations: [
@@ -23,7 +45,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    NgxPaginationModule
+    ReactiveFormsModule,
+    NgxPaginationModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]

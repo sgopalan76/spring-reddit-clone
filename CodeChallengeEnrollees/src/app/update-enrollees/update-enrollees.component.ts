@@ -15,7 +15,8 @@ export class UpdateEnrolleesComponent implements OnInit {
   enrolleeUpdate: FormGroup;
   status: boolean;
   dob: string;
-  
+  title = 'Update Enrollee';
+
   constructor(private route: ActivatedRoute,private router: Router,
     private enrolleeService: EnrolleeService) { }
 
