@@ -1,6 +1,6 @@
 # Some salient features
-  - Angular URL for Front end application - http://localhost:4200/enrollees
-  - The Server Endpoint - http://localhost:8080/enrollees
+  - Angular URL for Front end application - http://localhost:4200/enrollees (Assuming Angular is running in a localhost)
+  - The Server Endpoint - http://localhost:8080/enrollees (Assuming Server is running in a localhost)
   - Added pagination for the enrollee list (the pagination records are configurable per page)
   - Added a Delete button for future enhancement ,if a delete service does get implemented
   - A Search filter that allows to query on a record. The query will allow for Activation status search,
